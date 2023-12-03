@@ -76,4 +76,5 @@ If you see this error for port 5000 on Mac and the kill command doesn't work, ch
  - How to make a .env file in a node project: https://www.codementor.io/@parthibakumarmurugesan/what-is-env-how-to-set-up-and-run-a-env-file-in-node-1pnyxw9yxj
  - .env file formatting: https://stackoverflow.com/questions/71538752/when-are-quotes-needed-in-env-file
  - CORS middleware installation and usage: https://expressjs.com/en/resources/middleware/cors.html
- 
+ - React Search Bar: https://plainenglish.io/blog/how-to-implement-a-search-bar-in-react-js
+
