@@ -1,8 +1,11 @@
 const express = require("express");
 const axios = require("axios");
+const cors = require("cors");
 const { WEATHER_API_KEY, SERVER_PORT } = require('../config');
 
 const app = express();
+
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("connected");
