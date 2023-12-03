@@ -6,6 +6,8 @@ const { WEATHER_API_KEY, SERVER_PORT } = require('../config');
 const app = express();
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
     res.send("connected");
@@ -16,8 +18,8 @@ app.listen(port, () => {
     console.log("Server listening on the port http://localhost/" + port);
 });
 
-app.get("/:city", async (req, res) => {
-    let city = req.params.city
+app.get("/weather", async (req, res) => {
+    let city = req.query.city
     console.log(`Fetching the weather for ${city}`);
     let weather = {
         name: '',

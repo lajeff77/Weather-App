@@ -77,4 +77,6 @@ If you see this error for port 5000 on Mac and the kill command doesn't work, ch
  - .env file formatting: https://stackoverflow.com/questions/71538752/when-are-quotes-needed-in-env-file
  - CORS middleware installation and usage: https://expressjs.com/en/resources/middleware/cors.html
  - React Search Bar: https://plainenglish.io/blog/how-to-implement-a-search-bar-in-react-js
-
+ - What is event.preventDefault() : https://www.robinwieruch.de/react-preventdefault/
+ - How to use the body in express: https://www.geeksforgeeks.org/express-js-req-body-property/
+ - Adding a body in node: https://stackoverflow.com/questions/51415439/how-can-i-add-raw-data-body-to-an-axios-request

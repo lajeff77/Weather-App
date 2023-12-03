@@ -1,12 +1,12 @@
 import React from 'react';
 
-const WeatherModule = () => {
+const WeatherModule = ({ weatherData}) => {
     return (
         <div>
-            <h2>City name</h2>
-            <p>Time</p>
-            <p>Temperature</p>
-            <p>Condition</p>
+            <h2>City: {weatherData.name}</h2>
+            <p>Time: {weatherData.time}</p>
+            <p>Temperature: {weatherData.temp}</p>
+            <p>Condition: {weatherData.condition}</p>
         </div>
     )
 };
