@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "type": "module",
   "description": "a weather app where you can look up the forecast for the day by name of city",
   "main": "app.js",
   "scripts": {
