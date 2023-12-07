@@ -23,19 +23,28 @@ app.get("/weather", async (req, res) => {
     console.log(`Fetching the weather for ${city}`);
     let weather = {
         name: '',
-        time:'',
+        region: '',
+        country: '',
+        time: '',
+        timezone: '',
         temp: '',
-        condition: ''
+        condition: '',
+        icon: ''
     }
 
     try{
-        let response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${city}&aqi=no`); //${WEATHER_API_KEY}
+        let response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${city}&aqi=no`);
         let weatherData = response.data;
+        let weatherDate =  new Date(weatherData.location.localtime_epoch * 1000);
         weather.name = weatherData.location.name;
-        weather.time = weatherData.location.localtime;
+        weather.region = weatherData.location.region;
+        weather.country = weatherData.location.country;
+        weather.time = weatherDate.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric' });
+        weather.timezone = weatherDate.toLocaleTimeString([], { hour:"numeric", minute:"numeric", timeZoneName: 'long' }).replace(weather.time, '').trim();
         weather.temp = weatherData.current.temp_f;
         weather.condition = weatherData.current.condition.text;
-        // console.log(`In ${weather.name} it is ${weather.temp} degrees fahrenheit. The local time is ${weather.time} and the condition is ${weather.condition}.`);
+        weather.icon = 'https:' + weatherData.current.condition.icon;
+        console.log("weather:", weather);
     } catch(error) {
         res.status(500).json({error: "internal server error"});
     }

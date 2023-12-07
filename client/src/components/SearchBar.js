@@ -24,10 +24,9 @@ const SearchBar = ({updateWeatherData}) =>{
 
     }
     return (
-        <div>
+        <div className='search-bar'>
             <form onSubmit={handleSubmit}>
-                <input type='text' placeholder='Search for weather here.' onChange={handleChange} value={searchInput}/>
-                <input type='submit' />
+                <input type='text' placeholder='Enter a location here' onChange={handleChange} value={searchInput}/>
             </form>
         </div>
     )

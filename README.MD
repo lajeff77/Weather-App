@@ -80,3 +80,8 @@ If you see this error for port 5000 on Mac and the kill command doesn't work, ch
  - What is event.preventDefault() : https://www.robinwieruch.de/react-preventdefault/
  - How to use the body in express: https://www.geeksforgeeks.org/express-js-req-body-property/
  - Adding a body in node: https://stackoverflow.com/questions/51415439/how-can-i-add-raw-data-body-to-an-axios-request
+ - Website fonts: https://www.techradar.com/news/internet/top-20-fonts-for-the-web-909082
+ - Helvetica settings css: https://stackoverflow.com/questions/879769/is-helvetica-a-browser-base-font
+ - Flexbox guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ - CSS colors: https://www.computerhope.com/htmcolor.htm 
+ - Epoch to localtime: https://stackoverflow.com/questions/4631928/convert-utc-epoch-to-local-date
