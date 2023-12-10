@@ -1,43 +1,51 @@
 
+body {
+    background-color: #E3E2DF;
+    text-align: center;
+}
+
 .app-header {
-    padding: 16px;
-    background-color: gray;
+    padding: 2%;
+    background-color: #5D001E;
   }
 
 .app-header h1 {
-    font-size: 60px;
-    color: white;
+    font-size: 3rem; 
+    color: #E3E2DF;
     font-weight: 500;
     text-align: center;
     font-family: "Helvetica", sans-serif; 
   }
 
   .app-description{
-    font-size: 32px;
+    font-size: 1.5rem;
     font-family: "Helvetica", sans-serif; 
-    display: flex; 
-    justify-content: center;
-    padding-top: 40px;
+    padding: 5%;
+    color:#5D001E;
   }
 
   .search-bar {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    padding: 16px;
-    padding-top: 50px;
-    color:lightgray;
-    font-family: "Helvetica", sans-serif; 
+  }
+
+  .search-bar form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
   }
 
   .search-bar input {
-    width: 1000px;
     border: none;
-    border-radius: 15px;
-    color: black;
-    background-color: gray;
-    padding: 20px;
-    font-size: 20px;
+    border-radius: 1rem;
+    color:  #E3E2DF;
+    background-color: #9A1750;
+    padding: 2%;
+    font-size: 1rem;
     font-family: "Helvetica", sans-serif; 
+    margin: 2%;
   }
 
   .weather-module-container{
@@ -49,20 +57,24 @@
     flex-direction: column;
     justify-content: center;
     font-family: "Helvetica", sans-serif; 
-    border-radius: 15px;
-    background-color: darkgrey;
-    width: 1000px;
-    padding: 20px;
+    border-radius: 1rem;
+    background-color: #9A1750;
+    width: 70%;
+    padding: 5%;
+    margin: 5%;
   }
 
   .name{
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: #E3AFBC;
     margin: 2%;
     margin-top: 40px;
-    border-radius: 10px;
+    border-radius: 1rem;
     font-family: "Helvetica", sans-serif;
+    padding: 5%;
+    color:  #5D001E;
+    text-align: center;
   }
 
   .condition-info, .temperature-info, .time-info{
@@ -70,19 +82,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: #E3AFBC;
     margin: 2%;
-    border-radius: 10px;
-    /* padding: 10px; */
+    border-radius: 1rem;
     font-family: "Helvetica", sans-serif;
     flex-basis: 32%;
+    color: #5D001E;
   }
 
   .temperature, .time{
-    font-size: 32px;
+    font-size: 1.5rem;
   }
 
   .weather-info{
     display: flex;
     justify-content: space-around;
+  }
+
+  @media (max-width: 800px){
+    .weather-info{
+        flex-direction: column;
+    }
   }

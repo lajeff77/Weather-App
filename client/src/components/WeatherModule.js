@@ -5,7 +5,7 @@ const WeatherModule = ({ weatherData}) => {
         <div className='weather-module-container'>
             <div className='weather-module'>
                 <div className='name'>
-                    <h2>{weatherData.name}, {weatherData.region} | {weatherData.country}</h2>
+                    <h2>{weatherData.name}, {weatherData.region} {weatherData.country}</h2>
                 </div>
                 <div className='weather-info'>
                     <div className='condition-info'>

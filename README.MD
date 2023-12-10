@@ -85,3 +85,6 @@ If you see this error for port 5000 on Mac and the kill command doesn't work, ch
  - Flexbox guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
  - CSS colors: https://www.computerhope.com/htmcolor.htm 
  - Epoch to localtime: https://stackoverflow.com/questions/4631928/convert-utc-epoch-to-local-date
+ - Responsive design CSS: https://www.youtube.com/watch?v=VQraviuwbzU&ab_channel=KevinPowell
+ - EMs vs REMs: https://www.youtube.com/watch?v=_-aDOAMmDHI&ab_channel=KevinPowell
+ - Color schemes for websites (implemented #13, Red and Lively): https://visme.co/blog/website-color-schemes/
