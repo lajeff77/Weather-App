@@ -6,17 +6,22 @@ import Description from '../components/Description';
 
 const HomePage = () => {
     const [weatherData, setWeatherData] = useState(null);
+    const [timeData, setTimeData] = useState(null);
 
     const updateWeatherData = (newData) =>{
         setWeatherData(newData);
+    }
+
+    const updateTimeData = (newData) => {
+        setTimeData(newData)
     }
 
     return(
         <div className='home-page'>
             <Header/>
             <Description/>
-            <SearchBar updateWeatherData={updateWeatherData}/>
-            {weatherData && <WeatherModule weatherData={weatherData}/>}
+            <SearchBar updateWeatherData={updateWeatherData} updateTimeData={updateTimeData}/>
+            {weatherData && timeData && <WeatherModule weatherData={weatherData} timeData={timeData}/>}
         </div>
     )
 }

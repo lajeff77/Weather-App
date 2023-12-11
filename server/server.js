@@ -25,8 +25,6 @@ app.get("/weather", async (req, res) => {
         name: '',
         region: '',
         country: '',
-        time: '',
-        timezone: '',
         temp: '',
         condition: '',
         icon: ''
@@ -35,12 +33,9 @@ app.get("/weather", async (req, res) => {
     try{
         let response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${city}&aqi=no`);
         let weatherData = response.data;
-        let weatherDate =  new Date(weatherData.location.localtime_epoch * 1000);
         weather.name = weatherData.location.name;
         weather.region = weatherData.location.region;
         weather.country = weatherData.location.country;
-        weather.time = weatherDate.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric' });
-        weather.timezone = weatherDate.toLocaleTimeString([], { hour:"numeric", minute:"numeric", timeZoneName: 'long' }).replace(weather.time, '').trim();
         weather.temp = weatherData.current.temp_f;
         weather.condition = weatherData.current.condition.text;
         weather.icon = 'https:' + weatherData.current.condition.icon;
@@ -50,4 +45,31 @@ app.get("/weather", async (req, res) => {
     }
 
     res.send(JSON.stringify(weather));
+});
+
+app.get("/time", async (req,res) =>{
+    let name = req.query.name;
+    console.log(`Fetching timezone for ${name}`);
+    let time = {
+        currentTime: '',
+        timezone: ''
+    }
+
+    try{
+        let response = await axios.get(`http://api.weatherapi.com/v1/timezone.json?key=${WEATHER_API_KEY}&q=${name}`);
+        let timeData = response.data;
+        let timeDate =  new Date(timeData.location.localtime_epoch * 1000);
+        console.log('The response time is :', timeData);
+        time.currentTime = timeDate.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric',  timeZone: timeData.location.tz_id});
+        time.timezone = timeDate.toLocaleDateString([], { hour:"numeric", minute:"numeric",  timeZone: timeData.location.tz_id, timeZoneName: 'long'}).replace(time.currentTime, '').trim();
+        let commaIndex = time.timezone.indexOf(',');
+        time.timezone = time.timezone.substring(commaIndex + 1).trim();// time.timezone = getTimezoneName(timeData.location.tz_id);
+
+        console.log('Time: ', time);
+    }
+    catch(error) {
+        res.status(500).json({error: "internal server error, couldn't get time info"});
+    }
+
+    res.send(JSON.stringify(time));
 });

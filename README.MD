@@ -1,13 +1,20 @@
-# Weather App
+# ❤️ Loving you Weather ❤️
 
-## About
-This app makes use of the Realtime api from weatherapi.com to display the current temperature and weather condition of a given city. 
+## 📖 About
+This React app makes use of the Realtime api from weatherapi.com to display the current temperature and weather condition of a given city. The app also displays the local time using the Timezone api from weatherapi.com. 
 
-Type in any city in the search bar to fetch the weather data.
+Type in any city in the search bar to fetch the weather data. The location, temperature, and local time will be displayed.
 
 Learn more about weatherapi.com [here](https://www.weatherapi.com/).
 
-## Setup
+## 🔧 The Inner Workings (For the nerds 🤓)
+1. User enters a location into an input field. This location could be a postal/zip code, ip address, latitude/longitude coordinates, or a city name.
+2. User submits the location. The submission calls weatherapi.com twice, once for the Realtime API and another for the Timezone API.
+3. The Realtime API fetches the weather. The response provides us location information such as the city, region, and country. It also provides us the temperature in fahrenheit.
+4. The Timezone API fetches the time based on the name of the city. We receive the timezone name and local time for that city.
+5. The information is displayed on the weather module.
+
+## ⛺ Setup
 1. Ensure git is installed.
 2. Ensure npm is installed.
 3. Clone this repo with the following command:
@@ -18,14 +25,14 @@ https://github.com/lajeff77/Weather-App.git
 ```
 npm run setup
 ```
-5. Get an API key from weatherapi.com. See the gettting started section of the [docs](https://www.weatherapi.com/docs/).
+5. Email me at [lajeff77@gmail.com](mailto:lajeff77@gmail.com) to receive a copy of my API key or generate your own API key from weatherapi.com. See the getting started section of the [docs](https://www.weatherapi.com/docs/).
 6. Create a .env file and add your API key
 
 ```
 WEATHER_API_KEY = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-## Running Locally
+## 🏃🏾 Running Locally
 1. Start the server with the following command: 
 ```
 node server/server.js  
@@ -44,7 +51,7 @@ You can configure the server port in your .env file.
 SERVER_PORT = 5001
 ```
 
-## Troubleshooting
+## 🔎 Troubleshooting
 
 ### One of the ports is already in use
 
@@ -63,7 +70,7 @@ See this article: https://codinhood.com/nano/macos/find-kill-proccess-port-macos
 
 If you see this error for port 5000 on Mac and the kill command doesn't work, check this thread. Control center is known to use port 5000 to scan for airplay: https://developer.apple.com/forums/thread/682332
 
-## Resources
+## 🔗 Resources
  - How to setup a MERN app: https://dev.to/birdy/mern-stack-project-setup-to-push-to-github-4l5e
  - MongoDB node.js quickstart guide: https://www.mongodb.com/docs/drivers/node/v3.6/quick-start/ 
  - MongoDB, Node, and Express REST app example: https://www.mongodb.com/languages/express-mongodb-rest-api-tutorial
@@ -88,3 +95,4 @@ If you see this error for port 5000 on Mac and the kill command doesn't work, ch
  - Responsive design CSS: https://www.youtube.com/watch?v=VQraviuwbzU&ab_channel=KevinPowell
  - EMs vs REMs: https://www.youtube.com/watch?v=_-aDOAMmDHI&ab_channel=KevinPowell
  - Color schemes for websites (implemented #13, Red and Lively): https://visme.co/blog/website-color-schemes/
+ - testing with JEST: https://jestjs.io/docs/getting-started

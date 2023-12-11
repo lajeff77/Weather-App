@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const SearchBar = ({updateWeatherData}) =>{
+const SearchBar = ({updateWeatherData, updateTimeData}) =>{
     const [searchInput, setSearchInput] = useState("");
 
     const handleChange = (e) => {
@@ -14,10 +14,12 @@ const SearchBar = ({updateWeatherData}) =>{
 
         try{
             console.log('submitting for ', searchInput);
-            const payload = JSON.stringify({city: searchInput});
             const response = await axios.get("http://localhost:5000/weather", {params: {city:searchInput}});
             console.log(`Response is `, response);
             updateWeatherData(response.data);
+            const response2 = await axios.get("http://localhost:5000/time", {params: {name:searchInput}});
+            console.log(`Response 2 is `, response2);
+            updateTimeData(response2.data);
         }catch(error){
             console.error(`Error fetching weather data: ${error}`);
         }

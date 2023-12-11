@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WeatherModule = ({ weatherData}) => {
+const WeatherModule = ({ weatherData, timeData}) => {
     return (
         <div className='weather-module-container'>
             <div className='weather-module'>
@@ -17,8 +17,8 @@ const WeatherModule = ({ weatherData}) => {
                         <p className='temperature-unit'>Fahrenheit</p>
                     </div>
                     <div className='time-info'>
-                        <p className='time'>{weatherData.time}</p>
-                        <p className='timezone'>{weatherData.timezone}</p>
+                        <p className='time'>{timeData.currentTime}</p>
+                        <p className='timezone'>{timeData.timezone}</p>
                     </div>
                     
                 </div>
