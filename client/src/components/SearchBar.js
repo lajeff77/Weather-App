@@ -21,7 +21,7 @@ const SearchBar = ({updateWeatherData, updateTimeData}) =>{
             console.log(`Response 2 is `, response2);
             updateTimeData(response2.data);
         }catch(error){
-            console.error(`Error fetching weather data: ${error}`);
+            alert(error.message);
         }
 
     }

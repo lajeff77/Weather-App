@@ -41,7 +41,7 @@ app.get("/weather", async (req, res) => {
         weather.icon = 'https:' + weatherData.current.condition.icon;
         console.log("weather:", weather);
     } catch(error) {
-        res.status(500).json({error: "internal server error"});
+        console.log(`internal server error: ${error.message}`);
     }
 
     res.send(JSON.stringify(weather));
@@ -63,12 +63,13 @@ app.get("/time", async (req,res) =>{
         time.currentTime = timeDate.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric',  timeZone: timeData.location.tz_id});
         time.timezone = timeDate.toLocaleDateString([], { hour:"numeric", minute:"numeric",  timeZone: timeData.location.tz_id, timeZoneName: 'long'}).replace(time.currentTime, '').trim();
         let commaIndex = time.timezone.indexOf(',');
-        time.timezone = time.timezone.substring(commaIndex + 1).trim();// time.timezone = getTimezoneName(timeData.location.tz_id);
+        time.timezone = time.timezone.substring(commaIndex + 1).trim();
 
         console.log('Time: ', time);
     }
     catch(error) {
-        res.status(500).json({error: "internal server error, couldn't get time info"});
+        res.status(error.status).json({msg: error.message});
+        throw error;
     }
 
     res.send(JSON.stringify(time));
